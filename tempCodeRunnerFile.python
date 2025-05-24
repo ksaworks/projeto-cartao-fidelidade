@@ -1,0 +1,14 @@
+import sqlite3
+import pandas as pd
+conn = sqlite3.connect('database.db')
+
+consulta_atividade = """
+SELECT *
+FROM fligth_activity fa
+"""
+df_atividade = pd.read_sql_query(consulta_atividade, conn)
+conn.close()
+
+df_atividade.head()
+# Display the first few rows of the DataFrame
+print(df_atividade.head())
